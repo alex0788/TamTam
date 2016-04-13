@@ -2,10 +2,19 @@
 @foreach (MovieSearcherApi.MovieRepo.Movie m in Model)
 {
     <div class="movie">
-    <div class="poster"><img src="@m.Poster" /></div>
+        <div class="poster">
+            @if (!string.IsNullOrEmpty(@m.Poster))
+            {
+                <img src="@m.Poster"/>
+            }
+            else
+            {
+                 <img src="~/Content/image/no-poster.jpg"/>
+            }
+        </div>
         <div class="movie-content">
             <a class="movie-title" href="@m.UrlImdb" target="_blank">@m.Title (@m.Year)</a>
-            <p>@m.Plot</p>
+            <div>@m.Plot</div>
         </div>
     </div>
 }

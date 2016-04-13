@@ -23,12 +23,12 @@ namespace MovieSearcherSite.Areas.Imdb.Models
             return null;
         }
 
-        public IEnumerable<Movie> GetMoviesList(string title)
+        public IEnumerable<Movie> GetMoviesList(string title,int offset)
         {
             IEnumerable<Movie> movies = GetFromCache(title);
             if (movies == null)
             {
-                movies = Source.SearchMovies(title);
+                movies = Source.SearchMovies(title,offset);
                 WebCache.Set(title, movies, 300);
             }
             return movies;

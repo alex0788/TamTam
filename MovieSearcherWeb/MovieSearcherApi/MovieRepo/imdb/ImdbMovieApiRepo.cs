@@ -9,11 +9,12 @@ namespace MovieSearcherApi.MovieRepo.imdb
 {
     public class ImdbMovieApiRepo : MovieApiRepo
     {
-        public override IEnumerable<Movie> SearchMovies(string title,int offset=0)
+        public override IEnumerable<Movie> SearchMovies(string title,int offset=10)
         {
             var url = new UriBuilder(BuildQuery());
             var query = HttpUtility.ParseQueryString(url.Query);
             query["title"] = title;
+           // query["exactFilter"] = "1";
             query["offset"] = offset.ToString();
             url.Query = query.ToString();
             var doc = Utils.RequestXmlFeed(url.ToString());
