@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Net;
 using System.Xml;
+using Newtonsoft.Json.Linq;
 
 namespace MovieSearcherApi.Common
 {
@@ -23,6 +24,29 @@ namespace MovieSearcherApi.Common
             return xmlDoc;
         }
 
+        public static JObject RequesJsonFeed(string requestUrl)
+        {
+            JObject o = null;
+            var json = new WebClient().DownloadString(requestUrl);
+            if (json!=null)
+            {
+                o = JObject.Parse(json);
+            }
+            return o;
+        }
+
+        public static string GeJsonValue(JObject doc, string jPath)
+        {
+            try
+            {
+                return doc.SelectToken(jPath).ToString();
+            }
+            catch (Exception)
+            {
+                //exception
+            }
+            return string.Empty;
+        }
         public static string GetXmlValue(XmlNode doc,string xPath)
         {
             var node = doc.SelectSingleNode(xPath);

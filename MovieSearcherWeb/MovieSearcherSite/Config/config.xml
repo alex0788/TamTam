@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MovieApi>
+  <Imdb>
+    <add key="Imdb.context.Key" value="7fab0493-3cef-49ac-b0e9-93071e9bd0f4" />
+    <add key="Imdb.context.Url" value="http://myapifilms.com/imdb/idIMDB" />
+    <add key="Imdb.context.ItemsOnPage" value="3" />
+    <add key="Imdb.context.SingleMovie" value="//results/data /movie" />
+
+    <add key="Imdb.item.Title" value="title" />
+    <add key="Imdb.item.Poster" value="urlPoster" />
+    <add key="Imdb.item.IdImdb" value="idIMDB" />
+    <add key="Imdb.item.Year" value="year" />
+    <add key="Imdb.item.UrlImdb" value="urlIMDB" />
+    <add key="Imdb.item.VideoUrl" value="//trailer/qualities/videoURL" />
+    <add key="Imdb.item.Plot" value="simplePlot" />
+  </Imdb>
+  <Youtube>
+    <add key="Youtube.context.Key" value="7fab0493-3cef-49ac-b0e9-93071e9bd0f4" />
+    <add key="Youtube.context.Url" value="http://www.myapifilms.com/tmdb/movieInfoImdb" />
+    <add key="Youtube.context.ItemsOnPage" value="10" />
+    <add key="Youtube.context.SingleMovie" value="//results/data /movie" />
+
+    <add key="Youtube.item.YoutubeKey" value="data.videos[0].key" />
+    <add key="Youtube.item.VideoService" value="data.videos[0].site" />
+  </Youtube>
+  <RtApi>
+    
+  </RtApi>
+</MovieApi>

@@ -1,15 +1,31 @@
 ﻿@{
-    ViewBag.Title = "View1";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="center">
-    <h2>Trailer Searcher</h2>
-    <span>Title</span><br/><input type="text" id="inTitle" />
-    <input type="button" name="submit" id="inSearch" value="Search"/>
+    <div>
+        <span class="bold">Trailer Searcher</span>
+        <select id="searchType">
+            <option value="title"> by Title</option>
+            <option value="id"> by Id</option>
+        </select>
+    </div>
+    <br/>
+    <div id="searchByTitle">
+        <input placeholder="type movie title" type="text" id="title"/>
+        <br/>
+        <input placeholder="type year" type="text" id="year"/>
+        <br/>
+        <input type="checkbox" id="exact" value="Exact"/>
+    </div>
+    <div id="searchById" style="display: none">
+        <input placeholder="type movie id" type="text" id="movieId"/>
+    </div>
+    <input type="button" name="submit" id="Search" value="Search"/>
     <hr/>
-    <img style="display: none" id="load"src="~/Content/image/load.gif"/>
+    <img style="display: none" id="load" src="~/Content/image/load.gif"/>
+    <img style="display: none" id="noResults" src="~/Content/image/no-results.jpg" />
     <div class="movie-list">
     </div>
-    <div class="add-more" style="color: blue; height: 20px; width: 100px">Add more</div>
+    <a id="next">Next</a>
 </div>
 

@@ -125,8 +125,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Config\config.xml" />
+    <Content Include="Content\image\imdb.png" />
     <Content Include="Content\image\load.gif" />
     <Content Include="Content\image\no-poster.jpg" />
+    <Content Include="Content\image\no-results.jpg" />
+    <Content Include="Content\image\youtube.png" />
     <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Areas\Imdb\Views\Web.config" />
@@ -150,7 +154,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Areas\can be another api area\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

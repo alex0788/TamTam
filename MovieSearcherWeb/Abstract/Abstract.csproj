@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A6225A30-E416-4769-A6F5-3ED8904BE7F9}</ProjectGuid>
+    <ProjectGuid>{BF9B4198-11C5-4426-9317-59154406AF97}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MovieSearcherApi</RootNamespace>
-    <AssemblyName>MovieSearcherApi</AssemblyName>
+    <RootNamespace>Abstract</RootNamespace>
+    <AssemblyName>Abstract</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,12 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.8.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,21 +39,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Api\tmdbTrailer\YoutubeTrailer.cs" />
-    <Compile Include="Api\TrailerContext.cs" />
-    <Compile Include="ContextEntry.cs" />
-    <Compile Include="Api\tmdbTrailer\YoutubeTrailerContext.cs" />
-    <Compile Include="Common\Utils.cs" />
-    <Compile Include="MovieEntry.cs" />
-    <Compile Include="Api\imdbMovie\ImdbMovie.cs" />
-    <Compile Include="Api\imdbMovie\ImdbMovieContext.cs" />
-    <Compile Include="Api\Movie.cs" />
-    <Compile Include="Api\MovieContext.cs" />
-    <Compile Include="Api\Trailer.cs" />
+    <Compile Include="Factory\entries\imdb\ImdbItemFactory.cs" />
+    <Compile Include="Factory\entries\imdb\ImdbMovieItem.cs" />
+    <Compile Include="Factory\MovieItem.cs" />
+    <Compile Include="Factory\MovieItemFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

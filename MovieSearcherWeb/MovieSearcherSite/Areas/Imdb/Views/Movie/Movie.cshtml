@@ -1,5 +1,22 @@
-﻿@model IEnumerable<MovieSearcherApi.MovieRepo.Movie>
-@foreach (MovieSearcherApi.MovieRepo.Movie m in Model)
+﻿@model IEnumerable<MovieSearcherApi.Api.Movie>
+@helper ImdbTrailer(MovieSearcherApi.Api.Movie model)
+{
+    if (!string.IsNullOrEmpty(model.VideoUrl))
+    {
+        <a target="_blank" href="@string.Format(model.VideoUrl)"><img src="~/Content/image/imdb.png" /></a>
+    }
+}
+@helper YoutubeTrailer(MovieSearcherApi.Api.Movie model)
+{
+    if (model.Trailer!=null && !string.IsNullOrEmpty(model.Trailer.YoutubeKey))
+    {
+        <a target="_blank" href="@string.Format(model.Trailer.videoServiceUrl + model.Trailer.YoutubeKey)"><img src="~/Content/image/youtube.png" /></a>
+    }
+}
+
+
+
+@foreach (MovieSearcherApi.Api.Movie m in Model)
 {
     <div class="movie">
         <div class="poster">
@@ -15,6 +32,13 @@
         <div class="movie-content">
             <a class="movie-title" href="@m.UrlImdb" target="_blank">@m.Title (@m.Year)</a>
             <div>@m.Plot</div>
-        </div>
+        </div><br/>
+        @if (!string.IsNullOrEmpty(@m.UrlImdb) &&m.Trailer!=null && !string.IsNullOrEmpty(@m.Trailer.YoutubeKey))
+        {
+            <div>
+                @ImdbTrailer(@m)
+                @YoutubeTrailer(@m)
+            </div>
+        }
     </div>
 }

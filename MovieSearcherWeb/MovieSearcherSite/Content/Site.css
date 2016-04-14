@@ -17,6 +17,9 @@ input[type="text"]
 .center {
     text-align: center;
 }
+.bold {
+    font-weight: bold;
+}
 
 .movie {
     margin: 20px 20px 0 0;  
@@ -34,9 +37,19 @@ input[type="text"]
     height: 50%;
 
 }
+.italic {
+    font-style: italic;
+}
 .movie-content {
 }
 .movie-title {
     font-weight: bold;
     font-size: 100%
+}
+
+#title {
+    width: 200px;
+}
+#year {
+    width: 70px;
 }

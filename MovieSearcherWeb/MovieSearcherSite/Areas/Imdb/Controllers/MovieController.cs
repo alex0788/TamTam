@@ -5,10 +5,15 @@ namespace MovieSearcherSite.Areas.Imdb.Controllers
 {
     public class MovieController : Controller
     {
-        public PartialViewResult GetMovies(string title,int offset)
+        readonly ImdbRepository _repo = new ImdbRepository();
+        public PartialViewResult GetMoviesByTitle(string title,string year,string exact,int offset)
         {
-            var repo = new ImdbRepository();
-            var movs = repo.GetMoviesList(title,offset);
+            var movs = _repo.GetMoviesByTitle(title, year,exact, offset);
+            return PartialView("Movie", movs);
+        }
+        public PartialViewResult GetMoviesById(string movid, int offset)
+        {
+            var movs = _repo.GetMovieById(movid, offset);
             return PartialView("Movie", movs);
         }
 	}
