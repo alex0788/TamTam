@@ -31,6 +31,10 @@
         </div>
         <div class="movie-content">
             <a class="movie-title" href="@m.UrlImdb" target="_blank">@m.Title (@m.Year)</a>
+        @if (!string.IsNullOrEmpty(@m.Rating))
+        {
+            <div class="rating">Rating : <span class="red">@m.Rating</span></div>
+        }
             <div>@m.Plot</div>
         </div><br/>
         @if (!string.IsNullOrEmpty(@m.UrlImdb) &&m.Trailer!=null && !string.IsNullOrEmpty(@m.Trailer.YoutubeKey))

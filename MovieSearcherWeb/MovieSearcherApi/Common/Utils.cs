@@ -17,9 +17,9 @@ namespace MovieSearcherApi.Common
                 xmlDoc = new XmlDocument();
                 xmlDoc.Load(response.GetResponseStream());
             }
-            catch (Exception e)
+            catch (Exception exception)
             {
-                return xmlDoc;
+                throw exception;
             }
             return xmlDoc;
         }
@@ -27,12 +27,19 @@ namespace MovieSearcherApi.Common
         public static JObject RequesJsonFeed(string requestUrl)
         {
             JObject o = null;
-            var json = new WebClient().DownloadString(requestUrl);
-            if (json!=null)
+            try
             {
-                o = JObject.Parse(json);
+                var json = new WebClient().DownloadString(requestUrl);
+                if (json != null)
+                {
+                    o = JObject.Parse(json);
+                }
+                return o;
             }
-            return o;
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public static string GeJsonValue(JObject doc, string jPath)
@@ -41,11 +48,10 @@ namespace MovieSearcherApi.Common
             {
                 return doc.SelectToken(jPath).ToString();
             }
-            catch (Exception)
+            catch (Exception )
             {
-                //exception
+               return string.Empty;
             }
-            return string.Empty;
         }
         public static string GetXmlValue(XmlNode doc,string xPath)
         {

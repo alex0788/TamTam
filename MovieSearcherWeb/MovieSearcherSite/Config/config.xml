@@ -7,6 +7,7 @@
     <add key="Imdb.context.SingleMovie" value="//results/data /movie" />
 
     <add key="Imdb.item.Title" value="title" />
+    <add key="Imdb.item.Rating" value="rating" />
     <add key="Imdb.item.Poster" value="urlPoster" />
     <add key="Imdb.item.IdImdb" value="idIMDB" />
     <add key="Imdb.item.Year" value="year" />

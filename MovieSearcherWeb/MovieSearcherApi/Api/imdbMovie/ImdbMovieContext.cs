@@ -21,7 +21,7 @@ namespace MovieSearcherApi.Api.imdbMovie
                 query["forceYear"] = "1";
                 query["year"] = year;
             }
-            query["exactFilter"] = exact.ToString();
+            query["exactFilter"] = exact;
             query["offset"] = offset.ToString();
             url.Query = query.ToString();
             var doc = Utils.RequestXmlFeed(url.ToString());
@@ -41,7 +41,7 @@ namespace MovieSearcherApi.Api.imdbMovie
             return movs;
         }
 
-        public override IEnumerable<Movie> SearchMovies(string id, int offset = 10)
+        public override IEnumerable<Movie> SearchMovies(string id, int offset=10)
         {
             var url = new UriBuilder(BuildQuery());
             var query = HttpUtility.ParseQueryString(url.Query);
@@ -72,6 +72,7 @@ namespace MovieSearcherApi.Api.imdbMovie
             var param = HttpUtility.ParseQueryString(string.Empty);
             param["token"] = Key;
             param["format"] = "xml";
+            param["filter"] = "3";
             param["language"] = "en-us";
             param["trailers"] = "1";
             int limit = 0;

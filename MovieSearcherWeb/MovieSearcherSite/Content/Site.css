@@ -28,6 +28,9 @@ input[type="text"]
     width: 50%;
     margin-left: 25%;
 }
+.rating {
+    font-weight: bold;
+}
 .poster{
     float: left
 }
@@ -40,7 +43,8 @@ input[type="text"]
 .italic {
     font-style: italic;
 }
-.movie-content {
+.red {
+    color: red;
 }
 .movie-title {
     font-weight: bold;

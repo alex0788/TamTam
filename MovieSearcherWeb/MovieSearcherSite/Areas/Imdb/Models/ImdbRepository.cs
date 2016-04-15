@@ -6,7 +6,6 @@ using System.Web;
 using System.Web.Configuration;
 using System.Web.Helpers;
 using System.Xml;
-using MovieSearcherApi;
 using MovieSearcherApi.Api;
 using MovieSearcherApi.Api.imdbMovie;
 
@@ -34,7 +33,7 @@ namespace MovieSearcherSite.Areas.Imdb.Models
                 }
                 catch (Exception ex)
                 {
-                    //exception
+                    throw new Exception("Configuration file is broken. Please check.<br/>" + ex.Message);
                 }
             }
         }
@@ -51,6 +50,11 @@ namespace MovieSearcherSite.Areas.Imdb.Models
 
         public IEnumerable<Movie> GetMoviesByTitle(string title, string year,string exact, int offset)
         {
+            var yearInt=0;
+            if (!int.TryParse(year, out yearInt))
+            {
+                year = String.Empty;
+            }
             var key = string.Format("title={0}&year={1}&exact={2}&offset={3}", title, year, exact, offset);
             IEnumerable<Movie> movies = GetFromCache(key);
             if (movies == null)

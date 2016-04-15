@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Web;
 using System.Xml;
-using MovieSearcherApi.Api.imdbMovie;
-using MovieSearcherApi.Api.tmdbTrailer;
 using MovieSearcherApi.Common;
 
-namespace MovieSearcherApi.Api.youtubeTrailer
+namespace MovieSearcherApi.Api.tmdbTrailer
 {
     public class YoutubeTrailerContext:TrailerContext
     {

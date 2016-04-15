@@ -15,17 +15,19 @@
         <br/>
         <input placeholder="type year" type="text" id="year"/>
         <br/>
-        <input type="checkbox" id="exact" value="Exact"/>
+        <label>exact filter</label>
+        <input type="checkbox" id="exact" />
     </div>
     <div id="searchById" style="display: none">
         <input placeholder="type movie id" type="text" id="movieId"/>
     </div>
+    <input style="display: none" type="button" id="Back" value="<< Back" />
     <input type="button" name="submit" id="Search" value="Search"/>
+    <input style="display: none" type="button" id="Next" value="Next >>" />
     <hr/>
     <img style="display: none" id="load" src="~/Content/image/load.gif"/>
     <img style="display: none" id="noResults" src="~/Content/image/no-results.jpg" />
     <div class="movie-list">
     </div>
-    <a id="next">Next</a>
 </div>
 

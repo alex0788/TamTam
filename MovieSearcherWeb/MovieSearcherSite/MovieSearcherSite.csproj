@@ -151,10 +151,10 @@
     <Content Include="Areas\Imdb\Views\Movie\Movie.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\NoResults.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

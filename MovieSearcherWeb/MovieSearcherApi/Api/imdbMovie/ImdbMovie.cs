@@ -1,7 +1,5 @@
-﻿using System.Collections.Generic;
-using System.Xml;
+﻿using System.Xml;
 using MovieSearcherApi.Api.tmdbTrailer;
-using MovieSearcherApi.Api.youtubeTrailer;
 
 namespace MovieSearcherApi.Api.imdbMovie
 {

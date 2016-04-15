@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Xml;
-using MovieSearcherApi;
 using MovieSearcherApi.Common;
 using Newtonsoft.Json.Linq;
 
@@ -34,6 +32,10 @@ namespace MovieSearcherApi.Api
                         }
                     }
                 }
+            }
+            else
+            {
+                throw new Exception("Configuration file is broken. Please check");
             }
         }
 

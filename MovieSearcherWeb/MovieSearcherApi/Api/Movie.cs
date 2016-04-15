@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Xml;
 using MovieSearcherApi.Common;
 
@@ -8,6 +7,7 @@ namespace MovieSearcherApi.Api
     public abstract class Movie:MovieEntry
     {
         public string Title { get; set; }
+        public string Rating { get; set; }
         public string Poster { get; set; }
         public string IdImdb { get; set; }
         public string Year { get; set; }
@@ -40,6 +40,10 @@ namespace MovieSearcherApi.Api
                         }
                     }
                 }
+            }
+            else
+            {
+                throw new Exception("Configuration file is broken. Please check");
             }
         }
     

@@ -1,5 +1,5 @@
 ﻿var offset = 0;
-var limit = 0;
+var limit = 3;
 
 $('#searchType').change(function () {
     if ($(this)[0].value == "title") {
@@ -13,16 +13,29 @@ $('#searchType').change(function () {
 });
 
 $('#Search').click(function () {
+    offset = 0;
+    $('#Back').hide();
+    $('#Next').hide();
+    MakeSearch();
+});
+$('#Next').click(function () {
+    offset += limit;
+    MakeSearch();
+});
+$('#Back').click(function () {
+    if (offset >= limit) {
+        offset -= limit;
+    }
     MakeSearch();
 });
 
-$('#next').click(function () {
-    var count = $('.movie').length;
-    if (limit == 0) {
-        limit = $('.movie').length;
+$('#exact').change(function () {
+    if ($("#year").prop("disabled") === true) {
+        $("#year").prop("disabled", false);
+    } else {
+        $("#year").prop("disabled", true);
+        $('#year').val('');
     }
-    offset += count;
-    MakeSearch();
 });
 
 function MakeSearch() {
@@ -45,7 +58,7 @@ function LoadTrailersByTitle(title, year, exact, offset) {
     }, function (data) {
         $(".movie-list").html(data);
         Loading(false);
-        currentTitle = title;
+        ShowPagging();
     });
 }
 
@@ -56,14 +69,9 @@ function LoadTrailersById(id,offset) {
     }, function (data) {
         $(".movie-list").html(data);
         Loading(false);
-        currentTitle = title;
+        ShowPagging();
     });
 }
-
-$('.add-more').click(function () {
-    var offset = $('.movie').length;
-    LoadData(offset);
-});
 
 function Loading(show) {
     if (show == true) {
@@ -72,6 +80,22 @@ function Loading(show) {
     } else {
         $('#load').hide();
         $('.movie-list').show();
+    }
+}
+
+function ShowPagging() {
+    var items = $('.movie').length;
+    if (items ==limit) {
+        $('#Next').show();
+    }
+    if (offset >= limit) {
+        $('#Back').show();
+    } else {
+        $('#Back').hide();
+
+    }
+    if (items<limit && offset>limit) {
+        $('#Next').hide();
     }
 }
 

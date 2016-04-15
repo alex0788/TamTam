@@ -44,6 +44,10 @@ namespace MovieSearcherApi
                     }
                 }
             }
+            else
+            {
+                throw new Exception("Configuration file is broken. Please check");
+            }
         }
 
         public abstract string BuildQuery();
